@@ -1,0 +1,230 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    min-height:100vh;
+    overflow-x:hidden;
+    background:linear-gradient(135deg,#ffb6d9,#ffd6ea,#ffe9f4);
+    font-family:'Poppins',sans-serif;
+    position:relative;
+}
+
+/* Анимированный фон */
+.background{
+    position:fixed;
+    inset:0;
+    background:
+        radial-gradient(circle at 20% 20%,rgba(255,255,255,.3),transparent 30%),
+        radial-gradient(circle at 80% 40%,rgba(255,255,255,.25),transparent 30%);
+    animation:bgMove 8s infinite alternate;
+    z-index:-2;
+}
+
+@keyframes bgMove{
+    from{
+        transform:scale(1);
+    }
+    to{
+        transform:scale(1.1);
+    }
+}
+
+.container{
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:20px;
+}
+
+h1{
+    font-family:'Great Vibes',cursive;
+    font-size:4rem;
+    color:white;
+    text-shadow:0 0 20px #ff4da6;
+    margin-bottom:40px;
+}
+
+.buttons{
+    display:flex;
+    gap:20px;
+}
+
+button{
+    border:none;
+    cursor:pointer;
+    padding:18px 40px;
+    border-radius:40px;
+    font-size:1.2rem;
+    transition:.3s;
+    box-shadow:0 5px 25px rgba(255,105,180,.4);
+}
+
+#yesBtn{
+    background:#ff4da6;
+    color:white;
+}
+
+#yesBtn:hover{
+    transform:scale(1.1);
+}
+
+#noBtn{
+    background:white;
+    color:#ff4da6;
+}
+
+/* Блок после нажатия */
+#loveSection{
+    display:none;
+    padding:30px 20px 100px;
+    text-align:center;
+}
+
+.love-title{
+    margin-top:20px;
+}
+
+.days{
+    margin-top:20px;
+    font-size:1.3rem;
+    color:white;
+}
+
+/* Галерея */
+.photo-gallery{
+    position:relative;
+    width:320px;
+    height:320px;
+    margin:40px auto;
+}
+
+.photo{
+    position:absolute;
+    inset:0;
+    opacity:0;
+    transition:1s;
+}
+
+.photo.active{
+    opacity:1;
+}
+
+.photo img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    border-radius:50%;
+    border:8px solid white;
+    box-shadow:
+        0 0 30px #ff69b4,
+        0 0 60px pink;
+}
+
+/* Сердечко с фразами */
+.heart-button{
+    width:90px;
+    height:90px;
+    margin:auto;
+    background:#ff4da6;
+    color:white;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:2rem;
+    cursor:pointer;
+    animation:pulse 1.5s infinite;
+    box-shadow:0 0 30px hotpink;
+}
+
+@keyframes pulse{
+    50%{
+        transform:scale(1.15);
+    }
+}
+
+.phrase{
+    margin-top:30px;
+    color:white;
+    font-size:1.3rem;
+    padding:0 20px;
+    min-height:70px;
+}
+
+/* Финальный блок */
+.forever{
+    margin-top:70px;
+    color:white;
+    font-size:1.5rem;
+    line-height:2;
+}
+
+/* Сердечки */
+.heart{
+    position:fixed;
+    width:25px;
+    height:25px;
+    z-index:100;
+    pointer-events:none;
+    animation:fly 5s linear forwards;
+}
+
+@keyframes fly{
+    from{
+        transform:translateY(0) rotate(0deg);
+        opacity:1;
+    }
+
+    to{
+        transform:translateY(-110vh) rotate(360deg);
+        opacity:0;
+    }
+}
+
+/* Частицы */
+#particles{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+}
+
+/* Телефон */
+@media (max-width:768px){
+
+    h1{
+        font-size:2.7rem;
+    }
+
+    button{
+        padding:15px 30px;
+        font-size:1rem;
+    }
+
+    .buttons{
+        flex-direction:column;
+    }
+
+    .photo-gallery{
+        width:260px;
+        height:260px;
+    }
+
+    .days{
+        font-size:1.1rem;
+    }
+
+    .phrase{
+        font-size:1.1rem;
+    }
+
+    .forever{
+        font-size:1.2rem;
+    }
+
+}
